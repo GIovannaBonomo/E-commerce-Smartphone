@@ -6,116 +6,108 @@
     <title>E-Commerce per Smartphone</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap');
+        .link {
+            background-color: black;
+        }
+        .image {
+            display: none
+        }
+        .prezzoRosso {
+            color: red
+        }
+        td {
+            border:#f17e92 solid 2px; border-right: #f17e92 solid 2px
+        }
     </style>
 </head>
-<body style="margin: 0; font-family: Arial, sans-serif;" >
+<body style="margin: 0; font-family: Arial, sans-serif; background-color: white;" >
     <div class="topBar" style="background-color: pink; height: 60px;" >
         <h1 id="nomeNegozio" style="display: flex; justify-content: center; padding: 12px; font-family: Corinthia ;">Luce di Bellezza</h1>
     </div>
-    <div class="main" style="margin-top: 35px; max-width: 100vh; padding-left: 20%; padding-right: 20%;">
+    <div class="main" style="margin: 40px auto; max-width: 90%; padding: 20px; box-sizing: border-box;">
         <div>
-            <div class="img-container" style="height: 220px; display: flex; justify-content: center; margin-bottom: 30px">
-                <img src="asset/glossy.jpg" alt="Glossy-essence" style="height: 100%; width: auto; ">
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">The Super Peptite</h2>
-                <p>3,60€</p>
-            </div>
-            <p><b>Descrizione</b><br>
-                Il trattamento labbra è disponibile in una tonalità rosa, per aggiungere un tocco di colore mentre idrata le tue labbra.
-                La texture sognante e lussuosa dona un aspetto irresistibilmente lucido con un delicato accenno di colore.
-                Arricchito con una potente miscela di peptidi, burro di karité e vitamina E,
-                questo trattamento per labbra idrata profondamente ed è il nuovo must-have per labbra morbide come il cotone.
-            </p>
-            <a href="https://www.amazon.it/Cosmetics-Treatment-Levigante-Vitamine-Curativo/dp/B0DQ5C8QM8/ref=sr_1_3?crid=2EBMN120J749C&dib=eyJ2IjoiMSJ9.WWxhSi4JUKRIbn8x5_Ancjq8TLqOy0YVJ8WWjZfR_xE6-D1e_lqaAPm7_NTvmCFI_CwVc3PxZ5i3lOKMCowr_w9-gl8MsqnwmJVT9eosaAh_bJVspklzFBIYaMmemHt1ME5A44Ar4wBLBYNVsf5FO0tC7_d782nwgYJDXrX9eGT4DHsHT2lQH6hNnBPwmMXsJkmLuZXjHfO5q9do0VaGmjORQla1Rokp7_riwGX6rmUO5ethHmgVPPJwVZaVGyH47Nicmc5oJnVO3nJlT6AuP8jwqwQBuxzYFuzqXj9db78.xVTfXGDZEzkP1RAWGO754hMj5idApSuvnOTJc4iHRcs&dib_tag=se&keywords=the+super+peptide+essence&qid=1744371104&rdc=1&sprefix=the+super+pe%2Caps%2C149&sr=8-3">
-                <button style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
-            </a>
-            <div>
-                <textarea name="campo-di-testo" id="recensione" style="height: 30px; width: 100%; background-color: #ffe8eb; height: 95px; margin-bottom: 30px; border-radius: 5px;">Lascia qui la tua recensione!</textarea>
-            </div>
+            <table style="width: 100%; text-align: center;">
+                <tr>
+                    <td>Immagine</td>
+                    <td>Nome prodotto</td>
+                    <td>prezzo</td>
+                    <td>Descrizione</td>
+                    <td>link</td>
+                    <td>Recensione</td>
+                </tr>
+                <tr>
+                    <td><img onclick="rimuoviImg()" src="asset/glossy.jpg" alt="Glossy-essence" style="width: 25px; height: 100px; object-fit: cover;"></td>
+                    <td><h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">The Super Peptite</h2></td>
+                    <td><p class="prezzo" onclick="colorePrezzo()">3,60€</p></td>
+                    <td><p>
+                        Il trattamento labbra è disponibile in una tonalità rosa, per aggiungere un tocco di colore mentre idrata le tue labbra.
+                        La texture sognante e lussuosa dona un aspetto irresistibilmente lucido con un delicato accenno di colore.
+                        Arricchito con una potente miscela di peptidi, burro di karité e vitamina E,
+                        questo trattamento per labbra idrata profondamente ed è il nuovo must-have per labbra morbide come il cotone.
+                    </p></td>
+                    <td><a href="https://www.amazon.it/Cosmetics-Treatment-Levigante-Vitamine-Curativo/dp/B0DQ5C8QM8/ref=sr_1_3?crid=2EBMN120J749C&dib=eyJ2IjoiMSJ9.WWxhSi4JUKRIbn8x5_Ancjq8TLqOy0YVJ8WWjZfR_xE6-D1e_lqaAPm7_NTvmCFI_CwVc3PxZ5i3lOKMCowr_w9-gl8MsqnwmJVT9eosaAh_bJVspklzFBIYaMmemHt1ME5A44Ar4wBLBYNVsf5FO0tC7_d782nwgYJDXrX9eGT4DHsHT2lQH6hNnBPwmMXsJkmLuZXjHfO5q9do0VaGmjORQla1Rokp7_riwGX6rmUO5ethHmgVPPJwVZaVGyH47Nicmc5oJnVO3nJlT6AuP8jwqwQBuxzYFuzqXj9db78.xVTfXGDZEzkP1RAWGO754hMj5idApSuvnOTJc4iHRcs&dib_tag=se&keywords=the+super+peptide+essence&qid=1744371104&rdc=1&sprefix=the+super+pe%2Caps%2C149&sr=8-3" target="_blank">
+                        <button onclick="cambiaColore()" style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
+                    </a></td>
+                    <td><textarea name="campo-di-testo" id="recensione" style="height: 45vh; margin-bottom: 30px; border-radius: 5px;">Lascia qui la tua recensione!</textarea></td>
+                </tr>
+                <tr>
+                    <td><img src="asset/lio-oil.jpg" alt="Olio-labbra-essence" style="width: 63px; height: 100px; object-fit: cover;"></td>
+                    <td><h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">Hydra Kiss</h2></td>
+                    <td><p class="prezzo" onclick="colorePrezzo()">3,40€</p></td>
+                    <td><p>
+                         Hydra Kiss LIP OIL essence crea un finish luminoso e non appiccicoso.
+                          Acido ialuronico, olio di jojoba, vitamina E e olio di meadowfoam sono la combinazione vincente per labbra elastiche e idratate.
+                          L’olio per labbra ultraleggero dona alle un tocco di colore che si abbina a qualsiasi tonalità di pelle. 
+                    </p></td>
+                    <td><a href="https://www.amazon.it/Essence-Cosmetics-idratante-curativo-rugiadosa/dp/B0C78H2YNQ/?_encoding=UTF8&pd_rd_w=AsuIR&content-id=amzn1.sym.a1e3bb32-6a04-41ad-b4a0-af9d96cfb1b0%3Aamzn1.symc.fc11ad14-99c1-406b-aa77-051d0ba1aade&pf_rd_p=a1e3bb32-6a04-41ad-b4a0-af9d96cfb1b0&pf_rd_r=F8SGAT7NENW4B8GBAY0A&pd_rd_wg=vnzr9&pd_rd_r=d2de920c-8187-4b51-8cfc-a14ad9328a3e&ref_=pd_hp_d_atf_ci_mcx_mr_ca_hp_atf_d&th=1" target="_blank">
+                        <button style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
+                    </a></td>
+                    <td><textarea name="campo-di-testo" id="recensione" style="height: 45vh; margin-bottom: 30px; border-radius:5px">Lascia qui la tua recensione!</textarea></td>
+                <tr>
+                    <td><img src="asset/lucidalabbra-rimpolpante.jpg" alt="Rimpolpante-labbra-essence" style="width: 100px; height: 100px; object-fit: cover;"></td>
+                    <td><h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">My Gloss <br>Spicy Plumper</h2></td>
+                    <td><p class="prezzo" onclick="colorePrezzo()">8,50€</p></td>
+                    <td><p>
+                        My Gloss Spicy Plumper è un lip gloss volumizzante che enfatizza il volume delle labbra pochi minuti dopo
+                        l’applicazione e ne esalta il colore con una delicata sfumatura rosata 
+                    </p></td>
+                    <td><a href="https://www.amazon.it/Astra-8055510084677-GLOSS-SPICY-PLUMPER/dp/B09L8KG3FW/ref=rvi_d_sccl_6/261-7968941-4247447?pd_rd_w=nKjmS&content-id=amzn1.sym.547ce61e-33fb-4876-9984-dcdd97a99f53&pf_rd_p=547ce61e-33fb-4876-9984-dcdd97a99f53&pf_rd_r=XWB6APNGPKRE59DX7NY5&pd_rd_wg=fIN5l&pd_rd_r=c4e67d1b-787a-41e9-b565-231acb59237e&pd_rd_i=B09L8KG3FW&psc=1" target="_blank">
+                        <button style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
+                    </a></td>
+                    <td> <textarea name="campo-di-testo" id="recensione" style="height: 45vh; margin-bottom: 30px; border-radius: 5px;">Lascia qui la tua recensione!</textarea></td>
+                </tr>
+                <tr>
+                    <td><img src="asset/olio-labbra.jpg" alt="Olio-labbra-nyx" style="width: 31px; height: 100px; object-fit: cover;"></td>
+                    <td><h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">NYX Professional Makeup Gloss Labbra</h2></td>
+                    <td><p class="prezzo" onclick="colorePrezzo()">8,99€</p></td>
+                    <td><p>
+                        Gloss labbra unico nel suo genere che coccola, idrata e protegge le labbra,
+                        Ora in una nuova veste ancora più intensa e cremosa con tonalità uniche e brillanti
+                    </p></td>
+                    <td><a href="https://www.amazon.it/NYX-Professional-dIdratazione-Applicatore-Arricchito/dp/B0BL8HXJMX/ref=sr_1_6?crid=1QXYNP82U4ON5&dib=eyJ2IjoiMSJ9.d3YbeACtPQCR0MScakVJSVrs_vEMLXgzXT7T5PXRDJO9wE3a5WQuwRtyfnzR6tSE_SgaXvDP-KD8o7Hysg2bPG9Wybk5y7feC-0BVhgY_QRzUFwHhuGxcxVJuklOukTFQhbffiO0CUs9U3BcvIJdWpuxFN0Qwr3RjBfLcOazYfmGeThohTxw5Rh24yJLBZ4lXYCvqqVdaNhkrSMY5ys0rIW9k77SPLDXLxehOD4BajyBtz3Ib7kPV_CiPeZgzwofKWOohelkvC8yuPsfH_X8NwBjsiLDNVk0RPzcI-ZGOmY.VghfgIAOA2HPxsUMeCJcJ9KiFwbmdMCcZVbPAaeLudg&dib_tag=se&keywords=lip%2Bdrip%2Bnyx&qid=1744373696&rdc=1&sprefix=lip%2Bdrip%2Caps%2C157&sr=8-6&th=1" target="_blank">
+                        <button style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
+                    </a></td>
+                    <td> <textarea name="campo-di-testo" id="recensione" style="height: 45vh; margin-bottom: 30px; border-radius: 5px;">Lascia qui la tua recensione!</textarea></td>
+                </tr>
+                <tr>
+                    <td> <img src="asset/plumping.jpg" alt="Olio-labbra-nyx" style="width: 40px; height: 100px; object-fit: cover;"></td>
+                    <td> <h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">WHAT THE FAKE! BRILLO LABIOS</h2></td>
+                    <td><p class="prezzo" onclick="colorePrezzo()">4,62€</p></td>
+                    <td><p>Tintura reattiva al pH, rimpolpante, estratto di peperoncino infuso, acido ialuronico, vitamina E
+                    </p>
+                    <td><a href="https://www.amazon.it/ESSENCE-BRILLO-VOLUMINIZADOR-WHAT-EXTREME/dp/B09CLGGFBB/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2R3Y8XPFS9BXB&dib=eyJ2IjoiMSJ9.M6a3_eUJ1Ch_XHkvj17NQ9E9gTkv5ZTmZ8FNsAUQsv4FuRygKX8KdXHRv_zXLSue.7Podctk-Tx5uRfzYx1y0aLc9UaVonMsfOyDV7MY3238&dib_tag=se&keywords=what%2Bthe%2Bnext%2Bessence&qid=1744373903&rdc=1&sprefix=what%2Bthe%2Bnext%2Bessenc%2Caps%2C148&sr=8-1&th=1" target="_blank">
+                        <button style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
+                    </a></td>
+                    <td><textarea name="campo-di-testo" id="recensione" style="height: 45vh; margin-bottom: 30px; border-radius: 5px;">Lascia qui la tua recensione!</textarea></td></td>
+                </tr>
+             </table>
         </div>
-        <div>
-            <div class="img-container" style="height: 220px;; display: flex; justify-content: center; margin-bottom: 30px">
-                <img src="asset/lio-oil.jpg" alt="Olio-labbra-essence" style="height: 100%; width: auto; ">
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">Hydra Kiss</h2>
-                <p>3,40€</p>
-            </div>
-            <p><b>Descrizione</b><br>
-                Hydra Kiss LIP OIL essence crea un finish luminoso e non appiccicoso.
-                Acido ialuronico, olio di jojoba, vitamina E e olio di meadowfoam sono la combinazione vincente per labbra elastiche e idratate.
-                L’olio per labbra ultraleggero dona alle un tocco di colore che si abbina a qualsiasi tonalità di pelle. 
-            </p>
-            <a href="https://www.amazon.it/Essence-Cosmetics-idratante-curativo-rugiadosa/dp/B0C78H2YNQ/?_encoding=UTF8&pd_rd_w=AsuIR&content-id=amzn1.sym.a1e3bb32-6a04-41ad-b4a0-af9d96cfb1b0%3Aamzn1.symc.fc11ad14-99c1-406b-aa77-051d0ba1aade&pf_rd_p=a1e3bb32-6a04-41ad-b4a0-af9d96cfb1b0&pf_rd_r=F8SGAT7NENW4B8GBAY0A&pd_rd_wg=vnzr9&pd_rd_r=d2de920c-8187-4b51-8cfc-a14ad9328a3e&ref_=pd_hp_d_atf_ci_mcx_mr_ca_hp_atf_d&th=1">
-                <button style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
-            </a>
-            <div>
-                <textarea name="campo-di-testo" id="recensione" style="height: 30px; width: 100%; background-color: #ffe8eb; height: 95px; margin-bottom: 30px; border-radius: 5px;">Lascia qui la tua recensione!</textarea>
-            </div>
-        <div>
-            <div class="img-container" style="height: 220px;; display: flex; justify-content: center; margin-bottom: 30px">
-                <img src="asset/lucidalabbra-rimpolpante.jpg" alt="Rimpolpante-labbra-essence" style="height: 100%; width: auto; ">
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">My Gloss <br>Spicy Plumper</h2>
-                <p>8,50€</p>
-            </div>
-            <p><b>Descrizione</b><br>
-                My Gloss Spicy Plumper è un lip gloss volumizzante che enfatizza il volume delle labbra pochi minuti dopo
-                l’applicazione e ne esalta il colore con una delicata sfumatura rosata 
-            </p>
-            <a href="https://www.amazon.it/Astra-8055510084677-GLOSS-SPICY-PLUMPER/dp/B09L8KG3FW/ref=rvi_d_sccl_6/261-7968941-4247447?pd_rd_w=nKjmS&content-id=amzn1.sym.547ce61e-33fb-4876-9984-dcdd97a99f53&pf_rd_p=547ce61e-33fb-4876-9984-dcdd97a99f53&pf_rd_r=XWB6APNGPKRE59DX7NY5&pd_rd_wg=fIN5l&pd_rd_r=c4e67d1b-787a-41e9-b565-231acb59237e&pd_rd_i=B09L8KG3FW&psc=1">
-                <button style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
-            </a>
-            <div>
-                <textarea name="campo-di-testo" id="recensione" style="height: 30px; width: 100%; background-color: #ffe8eb; height: 95px; margin-bottom: 30px; border-radius: 5px;">Lascia qui la tua recensione!</textarea>
-            </div>
-        </div>
-        <div>
-            <div class="img-container" style="height: 220px;; display: flex; justify-content: center; margin-bottom: 30px">
-                <img src="asset/olio-labbra.jpg" alt="Olio-labbra-nyx" style="height: 100%; width: auto; ">
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">NYX Professional Makeup Gloss Labbra</h2>
-                <p>8,99€</p>
-            </div>
-            <p><b>Descrizione</b><br>
-                Gloss labbra unico nel suo genere che coccola, idrata e protegge le labbra,
-                Ora in una nuova veste ancora più intensa e cremosa con tonalità uniche e brillanti
-            </p>
-            <a href="https://www.amazon.it/NYX-Professional-dIdratazione-Applicatore-Arricchito/dp/B0BL8HXJMX/ref=sr_1_6?crid=1QXYNP82U4ON5&dib=eyJ2IjoiMSJ9.d3YbeACtPQCR0MScakVJSVrs_vEMLXgzXT7T5PXRDJO9wE3a5WQuwRtyfnzR6tSE_SgaXvDP-KD8o7Hysg2bPG9Wybk5y7feC-0BVhgY_QRzUFwHhuGxcxVJuklOukTFQhbffiO0CUs9U3BcvIJdWpuxFN0Qwr3RjBfLcOazYfmGeThohTxw5Rh24yJLBZ4lXYCvqqVdaNhkrSMY5ys0rIW9k77SPLDXLxehOD4BajyBtz3Ib7kPV_CiPeZgzwofKWOohelkvC8yuPsfH_X8NwBjsiLDNVk0RPzcI-ZGOmY.VghfgIAOA2HPxsUMeCJcJ9KiFwbmdMCcZVbPAaeLudg&dib_tag=se&keywords=lip%2Bdrip%2Bnyx&qid=1744373696&rdc=1&sprefix=lip%2Bdrip%2Caps%2C157&sr=8-6&th=1">
-                <button style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
-            </a>
-            <div>
-                <textarea name="campo-di-testo" id="recensione" style="height: 30px; width: 100%; background-color: #ffe8eb; height: 95px; margin-bottom: 30px; border-radius: 5px;">Lascia qui la tua recensione!</textarea>
-            </div>
-        </div>
-        <div>
-            <div class="img-container" style="height: 220px;; display: flex; justify-content: center; margin-bottom: 30px">
-                <img src="asset/plumping.jpg" alt="Olio-labbra-nyx" style="height: 100%; width: auto; ">
-            </div>
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <h2 style="font-family: 'Times New Roman', Times, serif; margin: 0; font-size: 18px;color: #f17e92;">WHAT THE FAKE! BRILLO LABIOS</h2>
-                <p>4,62€</p>
-            </div>
-            <p><b>Descrizione</b><br>
-                Tintura reattiva al pH, rimpolpante, estratto di peperoncino infuso, acido ialuronico, vitamina E
-            </p>
-            <a href="https://www.amazon.it/ESSENCE-BRILLO-VOLUMINIZADOR-WHAT-EXTREME/dp/B09CLGGFBB/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2R3Y8XPFS9BXB&dib=eyJ2IjoiMSJ9.M6a3_eUJ1Ch_XHkvj17NQ9E9gTkv5ZTmZ8FNsAUQsv4FuRygKX8KdXHRv_zXLSue.7Podctk-Tx5uRfzYx1y0aLc9UaVonMsfOyDV7MY3238&dib_tag=se&keywords=what%2Bthe%2Bnext%2Bessence&qid=1744373903&rdc=1&sprefix=what%2Bthe%2Bnext%2Bessenc%2Caps%2C148&sr=8-1&th=1">
-                <button style="border-radius: 30px; background-color: pink; margin-bottom: 10px; margin-top: 0;">Visita il sito</button>
-            </a>
-            <div>
-                <textarea name="campo-di-testo" id="recensione" style="height: 30px; width: 100%; background-color: #ffe8eb; height: 95px; margin-bottom: 30px; border-radius: 5px;">Lascia qui la tua recensione!</textarea>
-            </div>
-    </div>
-    </div>
     </div>
     <div class="footer" style="background-color: black; height: 60px; width: 100%;">
         <h3 style="display: flex; justify-content: center; padding: 5px; font-family: Arial; color: white; margin: 0;">
             Luce di Bellezza
         </h3>
-        <div class="indirizzo"><p style="color: white; text-align: center; margin: 0; font-size: 10px;">Via Giacomo Matteotti 2 <br> Modica <br> 
+        <div><p class="indirizzo" style="color: white; text-align: center; margin: 0; font-size: 10px;">Via Giacomo Matteotti 2 <br> Modica <br> 
         </p>
         </div>
     </div>
